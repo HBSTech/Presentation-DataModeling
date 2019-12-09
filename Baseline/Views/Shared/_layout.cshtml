@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @if (ViewBag.MetaData == null)
+    {
+        ViewBag.MetaData = new Component_MetaData()
+        {
+            Title = (string.IsNullOrWhiteSpace(ViewBag.Title) ? "NEW Code Camp" : ViewBag.Title)
+        };
+    }
+    @{
+        Component_MetaData MetaDataObj = (Component_MetaData)ViewBag.MetaData;
+        <meta name="description" content="@MetaDataObj.Abstract">
+        <meta name="keywords" content="@MetaDataObj.Keywords">
+        <meta name="author" content="">
+        <title class="has_page_title">@MetaDataObj.Title</title>
+    }
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/Content/css/bootstrap/bootstrap.min.css" type="text/css">
+
+    <!-- JQUERY, added in header so available anywhere -->
+    @Scripts.Render("https://newcodecamp.com/bundles/jquery")
+    <link href="~/Content/css/NEWCC/style.css" rel="stylesheet" />
+    @RenderSection("head", required: false)
+
+    @if (KMVCHelper.EnvironmentHelper.PageBuilderEnabled)
+    {
+        @Html.Kentico().PageBuilderStyles()
+    }
+</head>
+<body>
+
+    <header class="headerStyle">
+        <div class="content-wrapper">
+        </div>
+    </header>
+    @{Html.RenderAction("MainNav", "Master");}
+
+    <div id="body">
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <!-- Bootstrap 4 javascript -->
+    <script type="text/javascript" src="/Content/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Includes the jQuery Validator for MVC-->
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        $.validator.setDefaults({ ignore: null });
+    </script>
+
+    <!-- Includes the AJAX Unobtrusive for MVC -->
+    @Scripts.Render("~/bundles/jquery-unobtrusive-ajax")
+
+    @if (KMVCHelper.EnvironmentHelper.PageBuilderEnabled)
+    {
+        @Html.Kentico().PageBuilderScripts();
+    }
+
+    @RenderSection("foot", required: false)
+</body>
+</html>

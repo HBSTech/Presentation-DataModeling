@@ -1,0 +1,12 @@
+﻿@model Baseline.Models.Master.MainNavViewModel
+
+<div id="navMenu" class="navMenu">
+    <nav>
+        <ul id="menu">
+            @foreach (var NavItem in Model.NavItems)
+            {
+                <li><a href="@NavItem.Url">@NavItem.Text</a></li>
+            }
+        </ul>
+    </nav>
+</div>

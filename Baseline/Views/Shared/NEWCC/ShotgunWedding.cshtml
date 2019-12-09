@@ -1,0 +1,18 @@
+﻿@model Baseline.Models.NEWCC.ShotgunWeddingViewModel
+
+@{
+    ViewBag.Title = "Shotgun Wedding";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h1>@Model.ConcertTitle</h1>
+
+@Html.Kentico().EditableArea("Widgets")
+
+<h2>Songs</h2>
+<ul>
+    @foreach(var Song in Model.Songs)
+    {
+        <li>@Song.SongTitle by @Song.SongAuthor</li>
+    }
+</ul>

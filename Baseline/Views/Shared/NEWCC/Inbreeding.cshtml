@@ -1,0 +1,30 @@
+﻿@model CMS.DocumentEngine.Types.NEWCC.Inbreeding
+
+@{
+    ViewBag.Title = "Inbreeding";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h1>@Model.MenuName</h1>
+
+@Html.Kentico().EditableArea("Widgets")
+
+<h2>Related Links</h2>
+<ul>
+    @if (!string.IsNullOrWhiteSpace(Model.RelatedLink1Text))
+    {
+        <li><a href="@Model.RelatedLink1Url">@Model.RelatedLink1Text</a></li>
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.RelatedLink2Text))
+    {
+        <li><a href="@Model.RelatedLink2Url">@Model.RelatedLink2Text</a></li>
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.RelatedLink3Text))
+    {
+        <li><a href="@Model.RelatedLink3Url">@Model.RelatedLink3Text</a></li>
+    }
+    @if (!string.IsNullOrWhiteSpace(Model.RelatedLink4Text))
+    {
+        <li><a href="@Model.RelatedLink4Url">@Model.RelatedLink4Text</a></li>
+    }
+</ul>
