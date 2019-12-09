@@ -1,0 +1,24 @@
+﻿@model Baseline.Models.NEWCC.PolygomyViewModel
+
+@{
+    ViewBag.Title = "Polygomy Wedding";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h1>Meme's of Categor@(Model.MemeCategories.Length > 1 ? "ies" : "y") @string.Join(", ", Model.MemeCategories)</h1>
+
+@Html.Kentico().EditableArea("Widgets")
+
+<div class="row">
+    @foreach (var Meme in Model.Memes)
+    {
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@Meme.ImageUrl">
+                <div class="card-body">
+                    <h5 class="card-title">@Meme.MemeTitle</h5>
+                </div>
+            </div>
+        </div>
+    }
+</div>

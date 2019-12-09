@@ -1,0 +1,48 @@
+﻿@model Baseline.Models.NEWCC.ArrangedMarriageViewModel
+
+@{
+    ViewBag.Title = "Shotgun Wedding";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h1>@Model.CarTitle</h1>
+
+@Html.Kentico().EditableArea("Widgets")
+
+@if (Model.Tires.Count > 0)
+{
+    <h2>Tires</h2>
+    <div class="row">
+        @foreach (var Tire in Model.Tires)
+        {
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@Tire.ImageUrl">
+                    <div class="card-body">
+                        <h5 class="card-title">@Tire.CarPartName</h5>
+                        <p class="card-text">@Tire.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@if (Model.Rims.Count > 0)
+{
+    <h2>Rims</h2>
+    <div class="row">
+        @foreach (var Rim in Model.Rims)
+        {
+            <div class="col-sm-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="@Rim.ImageUrl">
+                    <div class="card-body">
+                        <h5 class="card-title">@Rim.CarPartName</h5>
+                        <p class="card-text">@Rim.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,23 @@
+﻿@model List<Speaker>
+
+<h3>Speakers</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Topic</td>
+            <td>Company</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Speaker speaker in Model)
+        {
+            <tr>
+                <td>@speaker.SpeakerName</td>
+                <td>@speaker.Topic</td>
+                <td>@speaker.Company</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

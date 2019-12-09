@@ -1,0 +1,12 @@
+﻿@model HolyMatrimony
+
+@{
+    ViewBag.Title = "Shotgun Wedding";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h1>@Model.MenuName</h1>
+
+@Html.Kentico().EditableArea("Widgets")
+
+@{Html.RenderAction("SpeakerListingByRelationship", "Speaker", new { NodeGuid =  Model.NodeGUID, NodeID = Model.NodeID });}
